@@ -8,6 +8,8 @@ public class Rocket : MonoBehaviour
     public float vitesse;
     public bool monte;
 
+    public GameObject explosion;
+
     public void JumpKeyPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -37,7 +39,9 @@ public class Rocket : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        // SceneManager.LoadScene(0);
+        Destroy(gameObject);
+        Instantiate(explosion, transform.position, Quaternion.identity );
+        SceneManager.LoadScene(0);
         print("Aie");
     }
 }
