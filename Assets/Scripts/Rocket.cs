@@ -9,7 +9,7 @@ public class Rocket : MonoBehaviour
     public bool monte;
 
     public GameObject explosion;
-
+    
     public void JumpKeyPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -41,7 +41,8 @@ public class Rocket : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity );
-        SceneManager.LoadScene(0);
+        
+        UIGameOverManager.instance.Display();
         print("Aie");
     }
 }
